@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Detail</title>
+</head>
+<body>
+	Project Title: {{project.title}} <br>
+	Project Description: {{project.description}} <br>
+	Project Duration: {{project.duration}} <br>
+	Project Created Date: {{project.created_date}} <br>
+
+	<h4>Tasks:</h4>
+
+	{% for task in project.tasks.all %}
+		<h4> <a href="{% url 'project_detail' pk=project.pk %}">{{ task.title }}</a> </h4>
+	{% endfor %}
+
+</body>
+</html>

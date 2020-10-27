@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List View of Projects</title>
+</head>
+<body>
+	<h2>To Do</h2>
+
+	<form method="POST" action="/" enctype="multipart/form-data">
+		{{form.title}}
+		{% csrf_token %}
+		<input type="submit" name="Create Task">
+	</form>
+
+	{% for project in projects %}
+		<div>
+			<a href="{% url 'project_detail' pk=project.pk %}">{{project.title}}</a>
+			<a href="{% url 'update_project' project.id %}">Update</a>
+			<a href="{% url 'delete_project' project.id %}">Delete</a>
+		</div>
+	{% endfor %}
+</body>
+</html>
