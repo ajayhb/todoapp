@@ -4,6 +4,7 @@ Suggestions:
 1) Create a Project before creating a Task.
 2) Project Duration Must be of the form ```HH:MM:SS```
 3) In a newly created Project, the Image won't be shown earlier unless you update it by uploading a new one. 
+4) The detailed view of Project(s) and Task(s) can be viewed by Clicking on their Title after they are created.
 
 Setup: 
 1) Clone the project into your new directory at any location on your computer.
