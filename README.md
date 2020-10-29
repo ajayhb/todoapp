@@ -1,8 +1,9 @@
 An App wherein you can create a project and tasks within that Project to assign it to someone.
 
 Suggestions:
-1) Create a Project before creating a task.
+1) Create a Project before creating a Task.
 2) Project Duration Must be of the form ```HH:MM:SS```
+3) In a newly created Project, the Image won't be shown earlier unless you update it by uploading a new one. 
 
 Setup: 
 1) Clone the project into your new directory at any location on your computer.
@@ -36,3 +37,7 @@ python manage.py makemigrations todoapp
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
 ```
+6) Further Scope:
+  a) User Authentication
+  b) Only the Selected Users can Create, Update and Delete the Tasks.
+  c) Drastic Changes in the UI.
