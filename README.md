@@ -37,7 +37,7 @@ python manage.py makemigrations todoapp
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
 ```
-6) Further Scope:
+Further Scope:
   a) User Authentication.
   b) Only the Selected Users can Create, Update and Delete the Tasks.
   c) Drastic Changes in the UI.
