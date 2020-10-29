@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>List View of Projects</title>
+</head>
+<body style="margin-left: 5px;">
+	<h2>To Do</h2>
+
+	<form method="POST" action="/" enctype="multipart/form-data">
+		{{form.title}}
+		{% csrf_token %}
+		<input type="submit" name="Create Project" value="Create Project">
+	</form>
+	<br><br>
+	<a href="{% url 'task_create' %}" class="btn btn-primary">Create Task</a>
+	<br><br>
+	<h3>List of All Projects</h3>
+	{% for project in projects %}
+		<div style="margin-left: 10px; margin-bottom: 5px;">
+			<a href="{% url 'project_detail' pk=project.pk %}">{{project.title}}</a>
+			<a href="{% url 'update_project' project.id %}"  class="btn btn-primary">
+				  <span class="glyphicon glyphicon-pencil"></span>
+			</a>
+			<a href="{% url 'delete_project' project.id %}" class="btn btn-danger">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+		</div>
+	{% endfor %}
+	
+</body>
+</html>

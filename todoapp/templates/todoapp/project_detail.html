@@ -2,17 +2,22 @@
 <html>
 <head>
 	<title>Project Detail</title>
+	  <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body>
-	Project Title: {{project.title}} <br>
-	Project Description: {{project.description}} <br>
-	Project Duration: {{project.duration}} <br>
-	Project Created Date: {{project.created_date}} <br>
+<body style="margin-left: 12px;">
+	Project Image: <img src="{{project.get_image_url|default_if_none:'None'}}" style="width:300px;height:300px;margin-left:10% "> <br>
+	Project Title: <strong>{{project.title}}</strong> <br>
+	Project Description: <strong>{{project.description}}</strong><br>
+	Project Duration: <strong>{{project.duration}}</strong>  <br>
+	Project Created Date: <strong>{{project.created_date}}</strong><br>
 
 	<h4>Tasks:</h4>
 
 	{% for task in project.tasks.all %}
-		<h4> <a href="{% url 'project_detail' pk=project.pk %}">{{ task.title }}</a> </h4>
+		<a href="{% url 'task_detail' pk=task.pk project_pk=project.pk %}" style="font-size: 22px;">{{task.title}}</a>
+		<a href="{% url 'task_delete' pk=task.pk %}" class="btn btn-danger">Delete {{task.name}}</a>
+		<a href="{% url 'task_update' pk=task.pk %}" class="btn btn-primary">Update {{task.name}}</a> <br><br>
 	{% endfor %}
 
 </body>
